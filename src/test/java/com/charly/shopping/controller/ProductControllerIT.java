@@ -41,7 +41,7 @@ public class ProductControllerIT {
 
     @Test
     public void getProducts() throws Exception {
-        ResponseEntity<Product[]> response = template.getForEntity(base.toString(), Product[].class);
+        ResponseEntity<Product[]> response = template.getForEntity(String.format("%s/product", base.toString()), Product[].class);
         assertThat(response.getBody()).isNotEmpty();
         assertThat(response.getBody()[0].getName()).isEqualTo("TAMA drum");
     }
